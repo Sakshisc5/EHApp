@@ -10,16 +10,25 @@ exercise_dict = {
 
 st.title("Exercise Help App")
 
-placeholder = st.empty()
-with placeholder.container():
-    st.write("Welcome to our exercise help app!"
-    time.sleep(3)
-    st.experimental_rerun()
+if 'show_welcome' not in st.session_state:
+    st.session_state.show_welcome = True
 
-with placeholder.container():
-    st.write("Before we help you out, we need a little information :)"
-    time.sleep(3)
-    st.experimental_rerun()
+if 'show_info_message' not in st.session_state:
+    st.session_state.show_info_message = False
+
+# Show welcome message
+if st.session_state.show_welcome:
+    st.write("Welcome to our exercise help app!")
+    time.sleep(2)  # Pause for 2 seconds
+    st.session_state.show_welcome = False
+    st.session_state.show_info_message = True
+
+# Show information message
+elif st.session_state.show_info_message:
+    st.write("Before we help you out, we need some information.")
+    time.sleep(2)  # Pause for another 2 seconds
+    st.session_state.show_info_message = False
+
 
 name = st.text_input("What is your name?")
 if name:
