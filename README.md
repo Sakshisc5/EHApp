@@ -1,2 +1,1 @@
-WE ARE CREATING AN EXERCISE APP THAT WILL TAKE THE USER'S NAME, GENDER, AGE, WEIGHT, HEIGHt, AND EXERCISE GOALS. THE APP WILL THEN RECOMMEND AN EXERCISE AND PROVIDE
-A MOTION TRACKING IMPLEMENTATION OF CODE TO ASSIST THE USER. THIS CURRENTLY COMES IN THE FORM OF A COUNTER AND FORM CHECKER DEPENDING ON THE RECOMMENDED EXERCISE. 
+We are creating an exercise app that will take the user's name, gender, age, weight, height, and exercise goals. The app will then recommend an exercise and provide an implementation of motion tracking code in order to assist the user. This currently comes in the form of a counter and form checker depending on the recommended exercise. 
