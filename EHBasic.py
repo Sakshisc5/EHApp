@@ -12,7 +12,7 @@ st.title("Exercise Help App")
 
 name = st.text_input("What is your name?")
 age = st.number_input("How old are you?", min_value=0)
-weight = st.number_input("What is your weight (in kg)?", min_value=0.0)
+weight = st.number_input("What is your weight (in lbs)?", min_value=0.0)
 height = st.number_input("What is your height (in cm)?", min_value=0.0)
 
 
