@@ -83,7 +83,7 @@ def home_page():
             "Recommended Exercises:": exercise_dict[goal],
         }
 
-        file_path = "/Users/sakshichavan/Desktop/workout_users.xlsx"
+        file_path = "./workout_users.xlsx"
 
 
         if os.path.exists(file_path):
