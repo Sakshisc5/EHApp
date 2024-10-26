@@ -21,7 +21,7 @@ def home_page():
 
     st.title("Exercise Help App")
 
-    if st.button("Sign In"):
+    if st.button("Log In"):
         st.session_state.page = "sign_in"
 
     st.write("Or Sign Up Below")
@@ -56,7 +56,7 @@ def home_page():
     if name and age and email and password:
         weight = st.number_input("What is your weight (in lbs)?", min_value=0.1)
     if name and age and email and password and weight:
-        height = st.number_input("What is your height (in ft)?", min_value=0.1)
+        height = st.number_input("What is your height (in inches)?", min_value=0.1)
     if name and age and email and password and weight and height:
         goal = st.selectbox("What is your main exercise goal?", list(exercise_dict.keys()))
 
@@ -66,7 +66,7 @@ def home_page():
         st.write(f"**Age:** {age}")
         st.write(f"**Email:** {email}")
         st.write(f"**Weight:** {weight} lbs")
-        st.write(f"**Height:** {height} ft")
+        st.write(f"**Height:** {height} inches")
         st.write(f"**Exercise Goal:** {goal}")
         st.subheader("Recommended Exercises:")
         for exercise in exercise_dict[goal]:
@@ -77,7 +77,7 @@ def home_page():
             "Age": age,
             "Email": email,
             "Password": password,
-            "Height(ft)": height,
+            "Height(inches)": height,
             "Weight(lbs)": weight,
             "Goal": goal,
             "Recommended Exercises:": exercise_dict[goal],
