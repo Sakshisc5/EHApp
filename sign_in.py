@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-file_path = "/Users/sakshichavan/Desktop/workout_users.xlsx"
+file_path = "./workout_users.xlsx"
 
 # Load user data from Excel
 def load_user_data(file_path):
@@ -24,7 +24,7 @@ def signin_page():
     st.title("Sign In")
 
     # Load user data
-    user_data = load_user_data('/Users/sakshichavan/Desktop/workout_users.xlsx')
+    user_data = load_user_data('./workout_users.xlsx')
 
     if user_data is not None:
         email = st.text_input("Email", "")
