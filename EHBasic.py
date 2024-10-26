@@ -45,11 +45,11 @@ if name and age and weight and height:
     goal = st.selectbox("What is your main exercise goal?", list(exercise_dict.keys()))
 
 # Submit button
-if st.button("Submit"):
+if name and age and weight and height and goal and st.button("Submit"):
     st.write(f"**Name:** {name}")
     st.write(f"**Age:** {age}")
-    st.write(f"**Weight:** {weight} kg")
-    st.write(f"**Height:** {height} cm")
+    st.write(f"**Weight:** {weight} lbs")
+    st.write(f"**Height:** {height} ft")
     st.write(f"**Exercise Goal:** {goal}")
     st.subheader("Recommended Exercises:")
     for exercise in exercise_dict[goal]:
