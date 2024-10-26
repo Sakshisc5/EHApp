@@ -1,21 +1,18 @@
-# RUN THIS BEFORE RUNNING: pip install opencv-python
-
 import streamlit as st
 import cv2
 import numpy as np
 
 st.title("Exercise Help App - Pull-Up Form Checker")
 
-# Open video stream
+# Initialize video capture
 cap = cv2.VideoCapture(0)
 FRAME_WINDOW = st.image([])
 
 # Set a reference position for checking "above bar" movement
-# For simplicity, we assume the person's head is detected as the highest point
 reference_position = None
 
 def process_frame(frame):
-    # Convert frame to grayscale and apply Gaussian blur for smoother edges
+    # Convert frame to grayscale for contour detection
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     blurred = cv2.GaussianBlur(gray, (15, 15), 0)
 
@@ -46,21 +43,38 @@ def process_frame(frame):
     # Display feedback based on position
     if head_position is not None:
         if head_position < reference_position:
-            st.write("Good pull-up! Chin is above the bar.")
+            cv2.putText(frame, "Good pull-up! Chin is above the bar.", (10, 30), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         else:
-            st.write("Try to pull up higher to get your chin above the bar.")
+            cv2.putText(frame, "Try to pull up higher to get your chin above the bar.", (10, 30), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-    return edges  # Display edges for visibility
+    return frame  # Return the original frame with annotations
 
-while cap.isOpened():
-    ret, frame = cap.read()
-    if not ret:
-        break
+# Button to start/stop video feed
+if st.button("Start Video"):
+    st.session_state.running = True  # Track if the video is running
 
-    # Process each frame and get feedback
-    edges = process_frame(frame)
+# Stop the video stream if button is pressed
+if st.button("Stop Video"):
+    st.session_state.running = False  # Stop the video loop
+    cap.release()
 
-    # Display the edges in Streamlit for visibility
-    FRAME_WINDOW.image(edges, channels="GRAY")
+# Continuous video feed display
+if st.session_state.get("running", False):
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            st.write("Failed to grab frame.")
+            break
+        processed_frame = process_frame(frame)
+        # Display the original frame in Streamlit
+        FRAME_WINDOW.image(processed_frame, channels="BGR")
+        
+        # Break out of the loop when the video is stopped
+        if not st.session_state.get("running", False):
+            break
 
-cap.release()
+# Release the video capture when the app is stopped
+if cap is not None:
+    cap.release()
