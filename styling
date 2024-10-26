@@ -70,7 +70,7 @@ goal = st.selectbox("What is your main exercise goal?", list(exercise_dict.keys(
 if st.button("Submit"):
     st.write(f"### Welcome, {name}! 👋")
     st.write(f"**Age:** {age} years")
-    st.write(f"**Weight:** {weight} kg")
+    st.write(f"**Weight:** {weight} lbs")
     st.write(f"**Height:** {height} cm")
     st.write(f"**Exercise Goal:** {goal}")
     
