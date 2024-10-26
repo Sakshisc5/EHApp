@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 
 exercise_dict = {
     "Weight Loss": ["Running", "Cycling", "HIIT", "Jump Rope", "Swimming"],
@@ -9,14 +10,27 @@ exercise_dict = {
 
 st.title("Exercise Help App")
 
+placeholder = st.empty()
+with placeholder.container():
+    st.write("Welcome to our exercise help app!"
+    time.sleep(3)
+    st.experimental_rerun()
+
+with placeholder.container():
+    st.write("Before we help you out, we need a little information :)"
+    time.sleep(3)
+    st.experimental_rerun()
 
 name = st.text_input("What is your name?")
-age = st.number_input("How old are you?", min_value=0)
-weight = st.number_input("What is your weight (in lbs)?", min_value=0.0)
-height = st.number_input("What is your height (in cm)?", min_value=0.0)
+if name:
+    age = st.number_input("How old are you?", min_value=0)
+if name and age:
+    weight = st.number_input("What is your weight (in lbs)?", min_value=0.0)
+if name and age and weight:
+    height = st.number_input("What is your height (in cm)?", min_value=0.0)
 
-
-goal = st.selectbox("What is your main exercise goal?", list(exercise_dict.keys()))
+if name and age and weight and height:
+    goal = st.selectbox("What is your main exercise goal?", list(exercise_dict.keys()))
 
 # Submit button
 if st.button("Submit"):
