@@ -1,6 +1,11 @@
 import streamlit as st
 import time
 
+with open('/Users/sakshichavan/Desktop/styles.css') as f:
+    css = f.read()
+
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+
 exercise_dict = {
     "Weight Loss": ["Jumping Jacks"],
     "Muscle Gain": ["Bicep Curl"],
