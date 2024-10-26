@@ -36,7 +36,6 @@ if name and age:
     weight = st.number_input("What is your weight (in lbs)?", min_value=0.1)
 if name and age and weight:
     height = st.number_input("What is your height (in ft)?", min_value=0.1)
-
 if name and age and weight and height:
     goal = st.selectbox("What is your main exercise goal?", list(exercise_dict.keys()))
 
