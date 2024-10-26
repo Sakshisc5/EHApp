@@ -2,10 +2,9 @@ import streamlit as st
 import time
 
 exercise_dict = {
-    "Weight Loss": ["Running", "Cycling", "HIIT", "Jump Rope", "Swimming"],
-    "Muscle Gain": ["Weight Lifting", "Push-ups", "Pull-ups", "Deadlifts", "Squats"],
-    "Flexibility": ["Yoga", "Pilates", "Stretching", "Tai Chi", "Dance"],
-    "Cardio Fitness": ["Jogging", "Rowing", "Boxing", "Elliptical", "Stair Climber"],
+    "Weight Loss": ["Jumping Jacks"],
+    "Muscle Gain": ["Bicep Curl"],
+    "Abs": ["Plank"],
 }
 
 st.title("Exercise Help App")
