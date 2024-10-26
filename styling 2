@@ -1,0 +1,98 @@
+import streamlit as st
+
+# Custom CSS for styling
+st.markdown("""
+    <style>
+    body {
+        background-color: #ffffff;
+    }
+    .main-container {
+        background-color: #ffffff;
+        padding: 2rem;
+        text-align: center;
+    }
+    .header-container {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+    .header-image {
+        width: 100%;
+        border-radius: 5px;
+    }
+    .header-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Arial', sans-serif;
+    }
+    .title-text {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #2d5f9a;
+    }
+    .subtitle-text {
+        font-size: 1.2em;
+        margin-top: 0.5em;
+    }
+    .stButton>button {
+        background-color: #2d5f9a;
+        color: white;
+        border: none;
+        padding: 0.5rem 2rem;
+        border-radius: 8px;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    .stButton>button:hover {
+        background-color: #1c3c6b;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+# Displaying header image and title
+st.markdown("""
+    <div class="header-container">
+        <img src="https://media.self.com/photos/60e76fe01f69d35150b50014/4:3/w_2560%2Cc_limit/GettyImages-1254996115.jpg" class="header-image">
+        <div class="header-text">
+            <div class="title-text">TRANSFORM YOUR LIFE</div>
+            <div class="subtitle-text">Achieve your fitness goals with our curated exercises</div>
+        </div>
+    </div>
+""", unsafe_allow_html=True)
+
+# Button to start the form
+start_button = st.button("Click Here to Begin")
+
+# Display the form only after clicking the button
+if start_button:
+    st.write("### Let's Get Started with Your Details:")
+    # Input fields
+    name = st.text_input("What is your name?")
+    age = st.number_input("How old are you?", min_value=0, step=1)
+    weight = st.number_input("What is your weight (in kg)?", min_value=0.0, step=0.1)
+    height = st.number_input("What is your height (in cm)?", min_value=0.0, step=0.1)
+
+    # Exercise dictionary
+    exercise_dict = {
+        "Weight Loss": ["Running", "Cycling", "HIIT", "Jump Rope", "Swimming"],
+        "Muscle Gain": ["Weight Lifting", "Push-ups", "Pull-ups", "Deadlifts", "Squats"],
+        "Flexibility": ["Yoga", "Pilates", "Stretching", "Tai Chi", "Dance"],
+        "Cardio Fitness": ["Jogging", "Rowing", "Boxing", "Elliptical", "Stair Climber"],
+    }
+
+    # Select exercise goal
+    goal = st.selectbox("What is your main exercise goal?", list(exercise_dict.keys()))
+
+    # Submit button with information display
+    if st.button("Submit"):
+        st.write(f"### Welcome, {name}!")
+        st.write(f"**Age:** {age} years")
+        st.write(f"**Weight:** {weight} kg")
+        st.write(f"**Height:** {height} cm")
+        st.write(f"**Exercise Goal:** {goal}")
+        
+        st.subheader("Recommended Exercises:")
+        for exercise in exercise_dict[goal]:
+            st.write(f"- {exercise}")
