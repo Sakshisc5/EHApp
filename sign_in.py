@@ -26,7 +26,7 @@ def signin_page():
         """
         <style>
             .stApp {
-                background-image: url("https://img.freepik.com/free-photo/dumbbells-multicolored-background_23-2147735032.jpg");
+                background-image: url("https://img.freepik.com/premium-photo/room-with-bench-bench-with-sun-shining-wall_1086760-231448.jpg");
                 background-size: cover; /* Cover the entire viewport */
                 background-position: center; /* Center the image */
                 background-repeat: no-repeat; /* Prevent tiling */
@@ -36,13 +36,14 @@ def signin_page():
 
             /* Title color */
             h1 {
-                color: #2079ee !important;  /* Medium Blue title */
+                color: #25a6fb !important;  /* Medium Blue title */
+                font-size: 36px !important;  /* Larger font size */
                 text-align: center;
             }
 
             /* Button styling */
             .stButton>button {
-                background-color: #2079ee !important; /* Medium Blue */
+                background-color: #25a6fb !important; /* Medium Blue */
                 color: #ffffff !important;
                 border: 1px solid #ffffff;
                 border-radius: 8px;
