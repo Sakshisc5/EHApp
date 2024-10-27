@@ -6,6 +6,7 @@ import mediapipe as mp
 import numpy as np
 import streamlit as st
 import time
+
 def pMotion_page():
     # MEDIAPIPE INITIALIZATION
     mp_drawing = mp.solutions.drawing_utils
@@ -15,7 +16,10 @@ def pMotion_page():
     # TEXT DISPLAYED BEFORE OPENING THE CAMERA
     st.title("Plank Checker")
     st.write("Make sure your whole side is in frame for accurate tracking.")
-    st.write("A window with your camera will open soon; if it doesn't, please refresh the page.")
+    st.write("A window with your camera will open soon, if it doesn't, please refresh the page.")
+    st.write("Press Stop to end the program")
+    if st.button("Back"):
+            st.session_state.page = "workout"
     
     # ANGLE CALCULATOR (COSINE RULE)
     def calculate_angle(a, b, c):
@@ -105,7 +109,7 @@ def pMotion_page():
     
                 # CHECK IF THE USER IS IN A PROPER PLANK POSITION
                 #OPTIMIZED FOR BOTH BEGINNER AND PROFESSIONAL PLANKS
-                if 90 < shoulder_angle < 115 and 0 < hip_angle < 5:  # THRESHOLDS ARE LENIENT BECAUSE THE LANDMARKS ARE CURRENTLY INCONSISTENT
+                if 90 < shoulder_angle < 115 and 0.3 < hip_angle < 8:  # THRESHOLDS ARE LENIENT BECAUSE THE LANDMARKS ARE CURRENTLY INCONSISTENT
                     if not in_plank:  
                         start_time = time.time()  
                     in_plank = True  
