@@ -10,7 +10,7 @@ def home_page():
         <style>
             /* Page background color */
             .stApp {
-        background-image: url("https://img.freepik.com/free-photo/sports-equipment-paper-background_23-2147735014.jpg?t=st=1729996942~exp=1730000542~hmac=4c5afe9994c8bae6ad9f8cb84979c525d2ded787bf9cab493e9725eb5c0bc4d6&w=1480");
+        background-image: url("https://webuygymequipment.com/assets/img/gym-equipment-2.webp");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -18,13 +18,26 @@ def home_page():
 
             /* Title color */
             h1 {
-                color: #2079ee !important;  /* Medium Blue title */
+                color: #25a6fb !important;  /* Medium Blue title */
+                font-size: 36px !important;  /* Larger font size */
                 text-align: center;
+            }
+
+            /* Welcome message styling */
+            .welcome-message {
+                color: #000000 !important;  /* Medium Blue */
+                text-align: center;
+                font-size: 18px !important;
+            }
+
+            p, label {
+                color: #ffffff !important;  /* White text for all paragraphs and labels */
+                font-size: 18px !important;  /* Larger font size */
             }
 
             /* Button styling */
             .stButton>button {
-                background-color: #2079ee !important; /* Medium Blue */
+                background-color: #25a6fb !important; /* Medium Blue */
                 color: #ffffff !important;
                 border: 1px solid #ffffff;
                 border-radius: 8px;
@@ -38,6 +51,16 @@ def home_page():
                 border: 2px solid #1059b8;
             }
         </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    st.markdown(
+        """
+        <div style='background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);'>
+            <h1>Exercise Help App</h1>
+            <p class='welcome-message'>Welcome to the Exercise Help App! Please provide your information below:</p>
+        </div>
         """,
         unsafe_allow_html=True
     )
