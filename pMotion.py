@@ -14,20 +14,24 @@ st.title("Plank Checker")
 st.write("Make sure your whole side is in frame for accurate tracking.")
 st.write("A window with your camera will open soon; if it doesn't, please refresh the page.")
 
-# ANGLE CALCULATOR
+# ANGLE CALCULATOR (COSINE RULE)
 def calculate_angle(a, b, c):
-    """Calculates the angle between three points."""
-    a = np.array(a)  # FIRST
-    b = np.array(b)  # MIDDLE
-    c = np.array(c)  # END
+    a = np.array(a)  
+    b = np.array(b)  
+    c = np.array(c)  
 
-    radians = np.arctan2(c[1] - b[1], c[0] - b[0]) - np.arctan2(a[1] - b[1], a[0] - b[0])
-    angle = np.abs(radians * 180.0 / np.pi)
+    ab = a - b
+    bc = c - b
 
-    if angle > 180.0:
-        angle = 360 - angle
+   
+    cos_angle = np.dot(ab, bc) / (np.linalg.norm(ab) * np.linalg.norm(bc))
 
+
+    cos_angle = np.clip(cos_angle, -1.0, 1.0)
+
+    angle = np.arccos(cos_angle) * (180.0 / np.pi)  
     return angle
+
 
 # VIDEO
 cap = cv2.VideoCapture(0)
@@ -80,6 +84,7 @@ with mp_pose.Pose(min_detection_confidence=0.3, min_tracking_confidence=0.3) as 
             hip_right = [landmarks[mp_pose.PoseLandmark.RIGHT_HIP].x, landmarks[mp_pose.PoseLandmark.RIGHT_HIP].y]
         
 
+            #HIP ANGLE IS NOT CALCULATED USING THE KNEE BECAUSE BEGINNER PLANKS HAVE THE KNEE ON THE FLOOR
             shoulder_angle = calculate_angle(shoulder_left, elbow_left, wrist_left)
             hip_angle = calculate_angle(hip_left, shoulder_left, hip_right)
 
@@ -96,7 +101,8 @@ with mp_pose.Pose(min_detection_confidence=0.3, min_tracking_confidence=0.3) as 
                      tuple(np.multiply(hip_right, [image.shape[1], image.shape[0]]).astype(int)), (255, 255, 255), 2)
 
             # CHECK IF THE USER IS IN A PROPER PLANK POSITION
-            if 100 < shoulder_angle < 195 and 9 < hip_angle < 15:  # THRESHOLDS ARE LENIENT BECAUSE THE LANDMARKS ARE CURRENTLY INCONSISTENT
+            #OPTIMIZED FOR BOTH BEGINNER AND PROFESSIONAL PLANKS
+            if 90 < shoulder_angle < 115 and 0 < hip_angle < 5:  # THRESHOLDS ARE LENIENT BECAUSE THE LANDMARKS ARE CURRENTLY INCONSISTENT
                 if not in_plank:  
                     start_time = time.time()  
                 in_plank = True  
