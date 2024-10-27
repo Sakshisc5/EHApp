@@ -76,17 +76,6 @@ def home_page():
         """,
         unsafe_allow_html=True
     )
-    
-    st.markdown(
-        """
-        <div style='background-color: rgba(255, 255, 255, 0.8); padding: 20px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);'>
-            <h1>Welcome to Form Focus</h1>
-            <p class='welcome-message'>Where form comes first, and fitness follows!</p>
-            <p class='welcome-message'>Please sign up below or continue to log in.</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
 
     # User data collection code
     user_data_list = []
