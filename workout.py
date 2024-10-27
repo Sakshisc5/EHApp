@@ -68,7 +68,7 @@ def home_page():
 
     st.markdown(
         """
-        <div style='background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);'>
+        <div style='background-color: rgba(255, 255, 255, 0.8); padding: 20px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);'>
             <img src="https://github.com/Sakshisc5/EHApp/blob/main/logo2.png?raw=true?raw=true" class="logo" alt="Logo" /> <!-- Adjust the path to your logo file -->
             <h1>Form Focus</h1>
             <p class='welcome-message'>Welcome to Form Focus! Please provide your information below:</p>
