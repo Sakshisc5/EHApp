@@ -107,9 +107,6 @@ def home_page():
 
     st.write("Or Sign Up Below")
 
-    if 'show_welcome' not in st.session_state:
-        st.session_state.show_welcome = True
-
     if 'show_info_message' not in st.session_state:
         st.session_state.show_info_message = False
 
