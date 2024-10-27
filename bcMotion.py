@@ -12,6 +12,9 @@ def bcMotion_page():
     st.title("Bicep Curl Checker")
     st.write("Make sure only your arm is visible in the frame for accurate tracking.")
     st.write("A window with your camera will open soon, if it doesn't, please refresh the page.")
+    st.write("Press Stop to end the program")
+    if st.button("Back"):
+            st.session_state.page = "workout"
     
     # ANGLE CALCULATOR (COSINE RULE)
     def calculate_angle(a, b, c):
