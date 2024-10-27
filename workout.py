@@ -61,7 +61,7 @@ def home_page():
     
     st.markdown(
         """
-        <div style='background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);'>
+        <div style='background-color: rgba(255, 255, 255, 0.8); padding: 20px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);'>
             <h1>Exercise Help App</h1>
             <p class='welcome-message'>Welcome to the Exercise Help App! Please provide your information below:</p>
         </div>
