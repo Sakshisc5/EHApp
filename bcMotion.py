@@ -4,6 +4,46 @@ import numpy as np
 import streamlit as st
 
 def bcMotion_page():
+    st.markdown(
+        """
+        <style>
+            /* Page background color */
+            .stApp {
+                background-image: url("https://img.freepik.com/premium-photo/blurry-gym-background-with-modern-sports-equipment-fitness-center-concept-gym-photography-blurry-background-fitness-center-modern-equipment_918839-75018.jpg");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                height: 100vh; /* Ensures the background covers the full height */
+            }
+            /* Title color */
+            h1 {
+                color: #ffffff !important;  /* White title */
+                font-size: 41px !important;  /* Larger font size */
+                text-align: center;
+            }
+            p, label {
+                color: #ffffff !important;  /* White text for all paragraphs and labels */
+                font-size: 18px !important;  /* Larger font size */
+            }
+            /* Custom button styles */
+            .stButton > button {
+                background-color: red; /* Red background */
+                color: white; /* White text */
+                border: none; /* No border */
+                padding: 10px 20px; /* Padding for the button */
+                font-size: 18px; /* Font size */
+                font-weight: bold; /* Bold text */
+                cursor: pointer; /* Pointer cursor on hover */
+                border-radius: 5px; /* Rounded corners */
+            }
+            .stButton > button:hover {
+                background-color: darkred; /* Darker red on hover */
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
     # MEDIAPIPE INITIALIZATION
     mp_drawing = mp.solutions.drawing_utils
     mp_pose = mp.solutions.pose
