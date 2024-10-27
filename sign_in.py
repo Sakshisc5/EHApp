@@ -37,8 +37,18 @@ def signin_page():
             /* Title color */
             h1 {
                 color: #25a6fb !important;  /* Medium Blue title */
-                font-size: 36px !important;  /* Larger font size */
+                font-size: 41px !important;  /* Larger font size */
                 text-align: center;
+            }
+
+            /* Logo styling */
+            .logo {
+                width: 200px; /* Adjust size as needed */
+                height: auto;
+                position: fixed; /* Fix the logo in the corner */
+                top: 50px; /* Adjust as necessary for spacing */
+                left: 3px; /* Adjust as necessary for spacing */
+                z-index: 10; /* Ensure it stays above other elements */
             }
 
             /* Button styling */
@@ -56,6 +66,7 @@ def signin_page():
                 color: #1059b8 !important; /* Medium Blue */
                 border: 2px solid #1059b8;
             }
+
         </style>
         """,
         unsafe_allow_html=True
