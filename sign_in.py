@@ -21,10 +21,54 @@ def sign_in(email, password, user_data):
 
 # Main app
 def signin_page():
-    st.title("Sign In")
+    # Set background image
+    st.markdown(
+        """
+        <style>
+            .stApp {
+                background-image: url("https://img.freepik.com/free-photo/dumbbells-multicolored-background_23-2147735032.jpg");
+                background-size: cover; /* Cover the entire viewport */
+                background-position: center; /* Center the image */
+                background-repeat: no-repeat; /* Prevent tiling */
+                height: 100vh; /* Full viewport height */
+                color: white; /* Change text color for visibility */
+            }
 
+            /* Title color */
+            h1 {
+                color: #2079ee !important;  /* Medium Blue title */
+                text-align: center;
+            }
+
+            /* Button styling */
+            .stButton>button {
+                background-color: #2079ee !important; /* Medium Blue */
+                color: #ffffff !important;
+                border: 1px solid #ffffff;
+                border-radius: 8px;
+                padding: 10px 20px;
+            }
+
+            /* Input fields */
+            .stTextInput input, .stNumberInput input {
+                background-color: #ffffff !important;
+                color: #1059b8 !important; /* Medium Blue */
+                border: 2px solid #1059b8;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # Container for welcome message
+    
+
+    # Sign In Form
+
+    st.title("Sign In")
+    
     # Load user data
-    user_data = load_user_data('./workout_users.xlsx')
+    user_data = load_user_data(file_path)
 
     if user_data is not None:
         email = st.text_input("Email", "")
@@ -44,8 +88,7 @@ def signin_page():
             else:
                 st.error("Invalid email or password.")
 
-    if st.button("Back to Sign Up"):
-        st.session_state.page = "workout"
+    st.markdown("</div>", unsafe_allow_html=True)  # Close the sign-in form container
 
 if __name__ == "__main__":
     signin_page()
