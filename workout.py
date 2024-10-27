@@ -50,6 +50,12 @@ def home_page():
         "Muscle Gain": ["Bicep Curl"],
         "Abs": ["Plank"],
     }
+    if st.button("Jumping Jacks Counter"):
+        st.session_state.page = "Jumping Jacks Counter"
+    if st.button("Plank Checker"):
+        st.session_state.page = "Plank Checker"
+    if st.button("Bicep Curl Form"):
+        st.session_state.page = "Bicep Curl Form"
 
     if st.button("Log In"):
         st.session_state.page = "sign_in"
@@ -101,6 +107,7 @@ def home_page():
         st.subheader("Recommended Exercises:")
         for exercise in exercise_dict[goal]:
             st.write(f"- {exercise}")
+        st.button("Scroll up for the needed form checker")
 
         user_data_list = {
             "Name": name,
