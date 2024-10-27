@@ -99,6 +99,8 @@ def signin_page():
                 st.write(f"**Recommended Exercises:** {user_info['Recommended Exercises:']}")
             else:
                 st.error("Invalid email or password.")
+        if st.button("Back"):
+            st.session_state.page = "workout"
 
     st.markdown("</div>", unsafe_allow_html=True)  # Close the sign-in form container
 
