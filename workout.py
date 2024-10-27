@@ -50,12 +50,28 @@ def home_page():
         "Muscle Gain": ["Bicep Curl"],
         "Abs": ["Plank"],
     }
-    if st.button("Jumping Jacks Counter"):
-        st.session_state.page = "Jumping Jacks Counter"
-    if st.button("Plank Checker"):
-        st.session_state.page = "Plank Checker"
-    if st.button("Bicep Curl Form"):
-        st.session_state.page = "Bicep Curl Form"
+    # Top navigation bar with buttons
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.markdown('<div class="column">', unsafe_allow_html=True)
+        if st.button("Jumping Jacks Counter", key="jumpingjack"):
+            st.session_state.page = "Jumping Jacks Counter"
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    
+    with col2:
+        st.markdown('<div class="column">', unsafe_allow_html=True)
+        if st.button("Plank Checker", key="plank"):
+            st.session_state.page = "Plank Checker"
+        st.markdown('</div>', unsafe_allow_html=True)
+
+
+    with col3:
+        st.markdown('<div class="column">', unsafe_allow_html=True)
+        if st.button("Bicep Curl Form", key="bicep"):
+            st.session_state.page = "Bicep Curl Form"
+        st.markdown('</div>', unsafe_allow_html=True)
 
     if st.button("Log In"):
         st.session_state.page = "sign_in"
