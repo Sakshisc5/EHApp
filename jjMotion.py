@@ -15,6 +15,9 @@ def jjMotion_page():
     st.title("Jumping Jacks Counter")
     st.write("Make sure your whole body is in frame for accurate tracking.")
     st.write("A window with your camera will open soon, if it doesn't, please refresh the page")
+    st.write("Press Stop to end the program")
+    if st.button("Back"):
+            st.session_state.page = "workout"
     
     # ANGLE CALCULATOR 
     def calculate_angle(a, b, c):
