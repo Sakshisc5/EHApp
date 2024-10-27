@@ -81,7 +81,7 @@ def signin_page():
                 st.subheader("User Information:")
                 st.write(f"**Name:** {user_info['Name']}")
                 st.write(f"**Age:** {user_info['Age']}")
-                st.write(f"**Height(ft):** {user_info['Height(ft)']} ft")
+                st.write(f"**Height(inches):** {user_info['Height(inches)']} inches")
                 st.write(f"**Weight(lbs):** {user_info['Weight(lbs)']} lbs")
                 st.write(f"**Goal:** {user_info['Goal']}")
                 st.write(f"**Recommended Exercises:** {user_info['Recommended Exercises:']}")
