@@ -21,7 +21,14 @@ def home_page():
 
     st.title("Exercise Help App")
 
-    if st.button("Log In"):
+    if st.button("Jumping Jacks Counter"):
+        st.session_state.page = "Jumping Jacks Counter"
+    if st.button("Plank Checker"):
+        st.session_state.page = "Plank Checker"
+    if st.button("Bicep Curl Form"):
+        st.session_state.page = "Bicep Curl Form"
+
+    if st.button("Sign In"):
         st.session_state.page = "sign_in"
 
     st.write("Or Sign Up Below")
@@ -56,7 +63,7 @@ def home_page():
     if name and age and email and password:
         weight = st.number_input("What is your weight (in lbs)?", min_value=0.1)
     if name and age and email and password and weight:
-        height = st.number_input("What is your height (in inches)?", min_value=0.1)
+        height = st.number_input("What is your height (in ft)?", min_value=0.1)
     if name and age and email and password and weight and height:
         goal = st.selectbox("What is your main exercise goal?", list(exercise_dict.keys()))
 
@@ -66,24 +73,26 @@ def home_page():
         st.write(f"**Age:** {age}")
         st.write(f"**Email:** {email}")
         st.write(f"**Weight:** {weight} lbs")
-        st.write(f"**Height:** {height} inches")
+        st.write(f"**Height:** {height} ft")
         st.write(f"**Exercise Goal:** {goal}")
         st.subheader("Recommended Exercises:")
         for exercise in exercise_dict[goal]:
             st.write(f"- {exercise}")
+        st.button("Scroll up for the needed form checker")
+
 
         user_data_list = {
             "Name": name,
             "Age": age,
             "Email": email,
             "Password": password,
-            "Height(inches)": height,
+            "Height(ft)": height,
             "Weight(lbs)": weight,
             "Goal": goal,
             "Recommended Exercises:": exercise_dict[goal],
         }
 
-        file_path = "./workout_users.xlsx"
+        file_path = "/Users/sakshichavan/Desktop/workout_users.xlsx"
 
 
         if os.path.exists(file_path):
@@ -99,4 +108,6 @@ def home_page():
         updated_data.to_excel(file_path, index=False, engine='openpyxl')
 
         st.success("Your data has been saved.")
+
+
 
