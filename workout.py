@@ -52,6 +52,7 @@ def home_page():
                 border: 1px solid #ffffff;
                 border-radius: 8px;
                 padding: 10px 20px;
+                width: 100%;
             }
 
             /* Input fields */
