@@ -5,3 +5,5 @@ pip install opencv-python
 pip install streamlit
 pip install mediapipe
 
+TO RUN:
+streamlit run main.py
