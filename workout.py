@@ -10,24 +10,34 @@ def home_page():
         <style>
             /* Page background color */
             .stApp {
-        background-image: url("https://webuygymequipment.com/assets/img/gym-equipment-2.webp");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+                background-image: url("https://webuygymequipment.com/assets/img/gym-equipment-2.webp");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
 
             /* Title color */
             h1 {
                 color: #25a6fb !important;  /* Medium Blue title */
-                font-size: 36px !important;  /* Larger font size */
+                font-size: 41px !important;  /* Larger font size */
                 text-align: center;
+            }
+
+           /* Logo styling */
+            .logo {
+                width: 200px; /* Adjust size as needed */
+                height: auto;
+                position: fixed; /* Fix the logo in the corner */
+                top: 50px; /* Adjust as necessary for spacing */
+                left: 3px; /* Adjust as necessary for spacing */
+                z-index: 10; /* Ensure it stays above other elements */
             }
 
             /* Welcome message styling */
             .welcome-message {
-                color: #000000 !important;  /* Medium Blue */
+                color: #000000 !important;  /* White text for welcome message */
                 text-align: center;
-                font-size: 18px !important;
+                font-size: 20px !important;
             }
 
             p, label {
@@ -38,14 +48,10 @@ def home_page():
             /* Button styling */
             .stButton>button {
                 background-color: #25a6fb !important; /* Medium Blue */
-                color: #ffffff !important;
+                color: #ffffff !important; /* White text for button */
                 border: 1px solid #ffffff;
                 border-radius: 8px;
                 padding: 10px 20px;
-                width: 100%;
-            }
-            .stButton>button:hover {
-                background-color: #165cbb !important; /* Darker Blue on hover */
             }
 
             /* Input fields */
@@ -55,6 +61,17 @@ def home_page():
                 border: 2px solid #1059b8;
             }
         </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        <div style='background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);'>
+            <img src="https://github.com/Sakshisc5/EHApp/blob/main/logo2.png?raw=true?raw=true" class="logo" alt="Logo" /> <!-- Adjust the path to your logo file -->
+            <h1>Form Focus</h1>
+            <p class='welcome-message'>Welcome to Form Focus! Please provide your information below:</p>
+        </div>
         """,
         unsafe_allow_html=True
     )
